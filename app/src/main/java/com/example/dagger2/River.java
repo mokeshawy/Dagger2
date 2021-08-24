@@ -8,4 +8,8 @@ public class River {
     public River(){
 
     }
+
+    public String getWater(){
+        return "Water";
+    }
 }

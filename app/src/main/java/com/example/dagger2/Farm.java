@@ -8,4 +8,9 @@ public class Farm {
     public Farm(){
 
     }
+
+    public String getBeans(){
+
+        return "Beans";
+    }
 }
