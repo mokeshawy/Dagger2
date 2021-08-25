@@ -1,4 +1,7 @@
-package com.example.dagger2;
+package com.example.dagger2.component;
+
+import com.example.dagger2.daggerclass.Coffee;
+import com.example.dagger2.activits.MainActivity;
 
 import dagger.Component;
 
