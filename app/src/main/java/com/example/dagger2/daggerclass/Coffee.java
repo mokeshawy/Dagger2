@@ -10,12 +10,16 @@ public class Coffee {
 
     @Inject
     Farm farm;      // field injection.
-    @Inject
-    River river;
+
+    River river; // constructor injection.
+
+    int sugar;
 
     @Inject
-    public Coffee(){ // constructor injection.
+    public Coffee(River river , int sugar){ // constructor injection.
+        this.river = river;
 
+        this.sugar = sugar;
     }
 
     @Inject // methods inject.
@@ -23,6 +27,6 @@ public class Coffee {
         Log.d(TAG," mohamed connectElectricity connect....");
     }
     public String getCoffeeCup(){
-        return farm.getBeans() + "+" + river.getWater();
+        return farm.getBeans() + "+" + river.getWater() + "+" + sugar;
     }
 }

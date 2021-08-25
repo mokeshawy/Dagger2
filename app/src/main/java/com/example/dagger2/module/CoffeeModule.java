@@ -8,15 +8,21 @@ import dagger.Provides;
 @Module
 public class CoffeeModule {
 
+    int sugar;
+
+    public CoffeeModule( int sugar){ // constructor... for coffeeModule.
+        this.sugar = sugar;
+    }
+
     @Provides
     River provideRiver(){
         return new River();
     }
 
-    // we need add new function add @Provides
-    //@Provides
-//    River2 provideRiver(){
-//        return new River();
-//    }
+    // we need add more function add @Provides
+    @Provides
+    int provideSugar(){
+        return sugar;
+    }
 
 }
