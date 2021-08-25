@@ -2,7 +2,11 @@ package com.example.dagger2.daggerclass;
 
 import android.util.Log;
 
+import com.example.dagger2.annotation.Milk;
+import com.example.dagger2.annotation.Sugar;
+
 import javax.inject.Inject;
+import javax.inject.Named;
 
 public class Coffee {
 
@@ -15,11 +19,13 @@ public class Coffee {
 
     int sugar;
 
-    @Inject
-    public Coffee(River river , int sugar){ // constructor injection.
-        this.river = river;
+    int milk;
 
+    @Inject
+    public Coffee(River river , @Sugar int sugar , @Milk int milk){ // constructor injection.
+        this.river = river;
         this.sugar = sugar;
+        this.milk = milk;
     }
 
     @Inject // methods inject.
@@ -27,6 +33,6 @@ public class Coffee {
         Log.d(TAG," mohamed connectElectricity connect....");
     }
     public String getCoffeeCup(){
-        return farm.getBeans() + "+" + river.getWater() + "+" + sugar;
+        return farm.getBeans() + "+" + river.getWater() + "+" + sugar + "+" + milk;
     }
 }

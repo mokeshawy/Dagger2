@@ -8,11 +8,11 @@ import dagger.Provides;
 @Module
 public class CoffeeModule {
 
-    int sugar;
+    //int sugar;
 
-    public CoffeeModule( int sugar){ // constructor... for coffeeModule.
-        this.sugar = sugar;
-    }
+//    public CoffeeModule( int sugar){ // constructor... for coffeeModule.
+//        this.sugar = sugar;
+//    }
 
     @Provides
     River provideRiver(){
@@ -20,9 +20,9 @@ public class CoffeeModule {
     }
 
     // we need add more function add @Provides
-    @Provides
-    int provideSugar(){
-        return sugar;
-    }
+//    @Provides
+//    int provideSugar(){
+//        return sugar;
+//    }
 
 }
