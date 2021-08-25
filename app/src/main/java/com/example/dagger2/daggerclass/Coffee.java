@@ -9,18 +9,18 @@ public class Coffee {
     private static final String TAG = "Coffee";
 
     @Inject
-    Farm farm;
+    Farm farm;      // field injection.
     @Inject
     River river;
 
     @Inject
-    public Coffee(){
+    public Coffee(){ // constructor injection.
 
     }
 
     @Inject // methods inject.
     public void connectElectricity(){
-        Log.d(TAG," Mohamed connectElectricity connect....");
+        Log.d(TAG," mohamed connectElectricity connect....");
     }
     public String getCoffeeCup(){
         return farm.getBeans() + "+" + river.getWater();

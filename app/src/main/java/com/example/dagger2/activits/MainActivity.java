@@ -6,8 +6,8 @@ import androidx.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.util.Log;
 
+import com.example.dagger2.component.DaggerCoffeeComponent;
 import com.example.dagger2.daggerclass.Coffee;
-import com.example.dagger2.DaggerCoffeeComponent;
 import com.example.dagger2.R;
 import com.example.dagger2.component.CoffeeComponent;
 import com.example.dagger2.databinding.ActivityMainBinding;
@@ -33,6 +33,6 @@ public class MainActivity extends AppCompatActivity {
         // work on inject function in activity.
         component.inject(this);
 
-        Log.d(TAG, "onCreate: "+ coffee.getCoffeeCup());
+        Log.d(TAG, "mohamed onCreate: "+ coffee.getCoffeeCup());
     }
 }

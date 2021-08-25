@@ -1,12 +1,13 @@
 package com.example.dagger2.daggerclass;
 
-import javax.inject.Inject;
+
+import android.util.Log;
 
 public class River {
 
-    @Inject
+    // create module for river class.
     public River(){
-
+        Log.d("River", " mohamed Water");
     }
 
     public String getWater(){
