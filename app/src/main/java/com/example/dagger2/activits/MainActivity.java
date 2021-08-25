@@ -10,6 +10,7 @@ import com.example.dagger2.daggerclass.Coffee;
 import com.example.dagger2.R;
 import com.example.dagger2.component.CoffeeComponent;
 import com.example.dagger2.databinding.ActivityMainBinding;
+import com.example.dagger2.mainapplication.MainApplication;
 import com.example.dagger2.module.CoffeeModule;
 
 import javax.inject.Inject;
@@ -20,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
     private static final String TAG = "MainActivity";
 
     @Inject
-    Coffee coffee;
+    Coffee coffee , coffee2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,11 +35,14 @@ public class MainActivity extends AppCompatActivity {
         //CoffeeComponent component = DaggerCoffeeComponent.builder().coffeeModule(new CoffeeModule(3)).build();
 
         // this Generate after add @component.builder
-        CoffeeComponent component = DaggerCoffeeComponent.builder().sugar(4).milk(7).build();
+        //CoffeeComponent component = DaggerCoffeeComponent.builder().sugar(4).milk(7).build();
+
+        //  this Generate after create main application because we need one instance from dagger in all application site.
+        CoffeeComponent component = ((MainApplication)getApplication()).getCoffeeComponent();
 
         // work on inject function in activity.
         component.inject(this);
                                                                         // get coffee instance number.
-        Log.d(TAG, "mohamed onCreate: "+ coffee.getCoffeeCup() +"Coffee no :"+coffee);
+        Log.d(TAG, "mohamed onCreate: "+ coffee.getCoffeeCup() +"\n Coffee1 no :"+coffee.farm + " Coffee2 no :"+ coffee2.farm);
     }
 }

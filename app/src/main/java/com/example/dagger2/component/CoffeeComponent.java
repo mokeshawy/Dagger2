@@ -6,12 +6,14 @@ import com.example.dagger2.daggerclass.Coffee;
 import com.example.dagger2.activits.MainActivity;
 import com.example.dagger2.module.CoffeeModule;
 
-import javax.inject.Named;
+import javax.inject.Singleton;
 
 import dagger.BindsInstance;
 import dagger.Component;
 
 // @Component(modules = (CoffeeModule1.class ,CoffeeModule2.class , CoffeeModule3.class )) when we need add some module.
+
+@Singleton
 @Component(modules = CoffeeModule.class) // connect with module.
 public interface CoffeeComponent {
 

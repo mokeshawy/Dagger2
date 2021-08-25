@@ -13,9 +13,9 @@ public class Coffee {
     private static final String TAG = "Coffee";
 
     @Inject
-    Farm farm;      // field injection.
+   public Farm farm;      // field injection.
 
-    River river; // constructor injection.
+   public River river; // constructor injection.
 
     int sugar;
 
