@@ -11,11 +11,13 @@ import javax.inject.Singleton;
 
 import dagger.BindsInstance;
 import dagger.Component;
+import dagger.Subcomponent;
 
 // @Component(modules = (CoffeeModule1.class ,CoffeeModule2.class , CoffeeModule3.class )) when we need add some module.
 
 @ActivityScope // create custom Activity Singleton because when component dependent another component not allowed using same @Singleton
-@Component(dependencies = AppComponent.class) // connect with module. CoffeeComponent dependent on AppComponent.
+//@Component(dependencies = AppComponent.class) // connect with module. CoffeeComponent dependent on AppComponent.
+@Subcomponent()
 public interface CoffeeComponent {
 
     Coffee getCoffee();
@@ -24,7 +26,8 @@ public interface CoffeeComponent {
     void inject(MainActivity mainActivity);
 
     // create constants builder for dagger
-    @Component.Builder
+    //@Component.Builder
+    @Subcomponent.Builder
     interface Builder{ // this builder for component ----> @Component.Builder.
 
         @BindsInstance  // get instance from sugar.
@@ -33,7 +36,7 @@ public interface CoffeeComponent {
         @BindsInstance  // get instance from milk.
         Builder milk( @Milk int milk);
 
-        Builder appComponent(AppComponent appComponent);
+        //Builder appComponent(AppComponent appComponent); // get instance from appComponent.
 
         CoffeeComponent build();
     }

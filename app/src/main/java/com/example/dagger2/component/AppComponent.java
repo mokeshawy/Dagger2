@@ -10,6 +10,8 @@ import dagger.Component;
 @Component(modules = RiverModule.class)
 public interface AppComponent { // AppComponent dependency for CoffeeComponent.
 
-    River getRiver();
+    //River getRiver();
+
+    CoffeeComponent.Builder getCoffeeComponentBuilder();
 
 }
