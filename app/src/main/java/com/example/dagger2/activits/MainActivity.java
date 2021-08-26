@@ -5,13 +5,14 @@ import androidx.databinding.DataBindingUtil;
 
 import android.os.Bundle;
 import android.util.Log;
+
+import com.example.dagger2.component.AppComponent;
 import com.example.dagger2.component.DaggerCoffeeComponent;
 import com.example.dagger2.daggerclass.Coffee;
 import com.example.dagger2.R;
 import com.example.dagger2.component.CoffeeComponent;
 import com.example.dagger2.databinding.ActivityMainBinding;
 import com.example.dagger2.mainapplication.MainApplication;
-import com.example.dagger2.module.CoffeeModule;
 
 import javax.inject.Inject;
 
@@ -38,11 +39,13 @@ public class MainActivity extends AppCompatActivity {
         //CoffeeComponent component = DaggerCoffeeComponent.builder().sugar(4).milk(7).build();
 
         //  this Generate after create main application because we need one instance from dagger in all application site.
-        CoffeeComponent component = ((MainApplication)getApplication()).getCoffeeComponent();
+        AppComponent component = ((MainApplication)getApplication()).getAppComponent();
+
+        CoffeeComponent coffeeComponent = DaggerCoffeeComponent.builder().milk(4).sugar(7).appComponent(component).build();
 
         // work on inject function in activity.
-        component.inject(this);
+        coffeeComponent.inject(this);
                                                                         // get coffee instance number.
-        Log.d(TAG, "mohamed onCreate: "+ coffee.getCoffeeCup() +"\n Coffee1 no :"+coffee.farm + " Coffee2 no :"+ coffee2.farm);
+        Log.d(TAG, "mohamed onCreate: "+ "\nCoffee1"+ coffee +"\nCoffee2: "+ coffee2 +"\n river to Coffee1 no :"+coffee.river + "river to Coffee2 no :"+ coffee2.river);
     }
 }

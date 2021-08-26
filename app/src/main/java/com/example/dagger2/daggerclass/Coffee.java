@@ -2,12 +2,15 @@ package com.example.dagger2.daggerclass;
 
 import android.util.Log;
 
+import com.example.dagger2.annotation.ActivityScope;
 import com.example.dagger2.annotation.Milk;
 import com.example.dagger2.annotation.Sugar;
 
 import javax.inject.Inject;
 import javax.inject.Named;
+import javax.inject.Singleton;
 
+@ActivityScope // because when one Activity we need Single instance from Coffee class.
 public class Coffee {
 
     private static final String TAG = "Coffee";

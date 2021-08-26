@@ -2,23 +2,25 @@ package com.example.dagger2.mainapplication;
 
 import android.app.Application;
 
+import com.example.dagger2.component.AppComponent;
 import com.example.dagger2.component.CoffeeComponent;
+import com.example.dagger2.component.DaggerAppComponent;
 import com.example.dagger2.component.DaggerCoffeeComponent;
 
 public class MainApplication extends Application {
 
-    private CoffeeComponent coffeeComponent;
+    private AppComponent appComponent;
 
     @Override
     public void onCreate() {
         super.onCreate();
 
-        // this Generate after add @component.builder
-        coffeeComponent = DaggerCoffeeComponent.builder().sugar(4).milk(7).build();
+        // this Generate after add appComponent
+        appComponent = DaggerAppComponent.create();
 
     }
 
-    public CoffeeComponent getCoffeeComponent() {
-        return coffeeComponent;
+    public AppComponent getAppComponent() {
+        return appComponent;
     }
 }

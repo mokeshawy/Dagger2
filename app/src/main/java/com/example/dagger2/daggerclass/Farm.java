@@ -5,7 +5,7 @@ import android.util.Log;
 import javax.inject.Inject;
 import javax.inject.Singleton;
 
-@Singleton // when you need instance will get single instance by dagger.
+ // when you need instance will get single instance by dagger.
 public class Farm {
 
     @Inject

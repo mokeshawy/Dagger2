@@ -2,11 +2,13 @@ package com.example.dagger2.module;
 
 import com.example.dagger2.daggerclass.River;
 
+import javax.inject.Singleton;
+
 import dagger.Module;
 import dagger.Provides;
 
 @Module
-public class CoffeeModule {
+public class RiverModule {
 
     //int sugar;
 
@@ -14,6 +16,7 @@ public class CoffeeModule {
 //        this.sugar = sugar;
 //    }
 
+    @Singleton
     @Provides
     River provideRiver(){
         return new River();

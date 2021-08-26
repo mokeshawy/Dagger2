@@ -1,10 +1,11 @@
 package com.example.dagger2.component;
 
+import com.example.dagger2.annotation.ActivityScope;
 import com.example.dagger2.annotation.Milk;
 import com.example.dagger2.annotation.Sugar;
 import com.example.dagger2.daggerclass.Coffee;
 import com.example.dagger2.activits.MainActivity;
-import com.example.dagger2.module.CoffeeModule;
+import com.example.dagger2.module.RiverModule;
 
 import javax.inject.Singleton;
 
@@ -13,8 +14,8 @@ import dagger.Component;
 
 // @Component(modules = (CoffeeModule1.class ,CoffeeModule2.class , CoffeeModule3.class )) when we need add some module.
 
-@Singleton
-@Component(modules = CoffeeModule.class) // connect with module.
+@ActivityScope // create custom Activity Singleton because when component dependent another component not allowed using same @Singleton
+@Component(dependencies = AppComponent.class) // connect with module. CoffeeComponent dependent on AppComponent.
 public interface CoffeeComponent {
 
     Coffee getCoffee();
@@ -31,6 +32,8 @@ public interface CoffeeComponent {
 
         @BindsInstance  // get instance from milk.
         Builder milk( @Milk int milk);
+
+        Builder appComponent(AppComponent appComponent);
 
         CoffeeComponent build();
     }
